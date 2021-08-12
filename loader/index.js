@@ -1,5 +1,14 @@
 const { getOptions } = require("loader-utils");
 const mdx = require("@mdx-js/mdx");
+const versionsForStaticSiteGeneration = require("../versions.json");
+
+const codeForServerSideOnlyPages = `
+  export async function getServerSideProps() {
+    return {
+      props: {}
+    }
+  }
+`;
 
 const DEFAULT_RENDERER = `
 import React from 'react'
@@ -12,6 +21,13 @@ const loader = async function (content) {
   const options = Object.assign({}, getOptions(this), {
     filepath: this.resourcePath,
   });
+
+  let shouldRenderOnServer = true;
+  if (
+    versionsForStaticSiteGeneration.find((v) => this.resourcePath.includes(v))
+  ) {
+    shouldRenderOnServer = false;
+  }
 
   let result;
 
@@ -28,7 +44,9 @@ const loader = async function (content) {
     return (
         <Layout pageProps={pageProps}>{page}</Layout>
     )
-  }`;
+  }\n
+  ${shouldRenderOnServer ? codeForServerSideOnlyPages : ""}
+  `;
 
   return callback(null, code);
 };
