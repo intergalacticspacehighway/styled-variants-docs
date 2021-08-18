@@ -1,6 +1,6 @@
 const { getOptions } = require("loader-utils");
 const mdx = require("../@mdx-js/mdx");
-const versionsForStaticSiteGeneration = require("../versions.json");
+const versionsForStaticSiteGeneration = require("../static-versions.json");
 
 const codeForServerSideOnlyPages = `
 export async function getServerSideProps() {
