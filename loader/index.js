@@ -1,6 +1,6 @@
 const { getOptions } = require("loader-utils");
 const mdx = require("../@mdx-js/mdx");
-const versionsForStaticSiteGeneration = require("../static-versions.json");
+// const versionsForStaticSiteGeneration = require("../static-versions.json");
 
 const codeForServerSideOnlyPages = `
 export async function getServerSideProps() {
@@ -24,15 +24,15 @@ const loader = async function (content) {
     filepath: this.resourcePath,
   });
 
-  let shouldRenderOnServer = true;
-  if (
-    versionsForStaticSiteGeneration.find((v) =>
-      this.resourcePath.includes(v)
-    ) ||
-    content.includes("getServerSideProps")
-  ) {
-    shouldRenderOnServer = false;
-  }
+  let shouldRenderOnServer = false;
+  // if (
+  //   versionsForStaticSiteGeneration.find((v) =>
+  //     this.resourcePath.includes(v)
+  //   ) ||
+  //   content.includes("getServerSideProps")
+  // ) {
+  //   shouldRenderOnServer = false;
+  // }
 
   let result;
 

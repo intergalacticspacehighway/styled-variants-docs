@@ -89,6 +89,7 @@ function toJSX(node, parentNode = {}, options = {}) {
 
     const exportNames = exportNodes
       .filter((node) => !node.value.includes("getServerSideProps"))
+      .filter((node) => !node.value.includes("getStaticProps"))
       .map((node) =>
         node.value.match(/^export\s*(var|const|let|class|function)?\s*(\w+)/)
       )

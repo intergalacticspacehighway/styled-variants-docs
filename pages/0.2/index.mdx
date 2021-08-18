@@ -1,9 +1,13 @@
-# hey from ${props.name}
+import { MyCustomComponent } from "components/MyCustomComponent";
 
-export async function getServerSideProps() {
+# hey from ${props.lastName}
+
+<MyCustomComponent name={props.lastName} />
+
+export async function getStaticProps() {
   return {
     props: {
-      name: "hi",
+      lastName: "world",
     },
   };
 }
