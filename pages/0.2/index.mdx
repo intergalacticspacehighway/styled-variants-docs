@@ -1,1 +1,9 @@
-# hey from 0.2
+# hey from ${props.name}
+
+export async function getServerSideProps() {
+  return {
+    props: {
+      name: "hi",
+    },
+  };
+}
