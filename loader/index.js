@@ -28,8 +28,8 @@ const loader = async function (content) {
   if (
     versionsForStaticSiteGeneration.find((v) =>
       this.resourcePath.includes(v)
-    ) &&
-    !content.includes("getServerSideProps")
+    ) ||
+    content.includes("getServerSideProps")
   ) {
     shouldRenderOnServer = false;
   }
