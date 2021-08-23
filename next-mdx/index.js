@@ -10,7 +10,7 @@ module.exports =
           use: [
             options.defaultLoaders.babel,
             {
-              loader: require.resolve("../loader"),
+              loader: require.resolve("../@mdx-js/loader"),
               options: pluginOptions.options,
             },
           ],

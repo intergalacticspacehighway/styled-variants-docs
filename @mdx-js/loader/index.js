@@ -1,17 +1,21 @@
 const { getOptions } = require("loader-utils");
-const mdx = require("@mdx-js/mdx");
+const mdx = require("../mdx");
+// const versionsForStaticSiteGeneration = require("../static-versions.json");
+
+const codeForServerSideOnlyPages = `
+export async function getServerSideProps() {
+  return {
+    props: {
+    },
+  };
+}
+
+`;
 
 const DEFAULT_RENDERER = `
 import React from 'react'
 import { mdx } from '@mdx-js/react'
-`;
-
-const ssrCode = `
-export async function getServerSideProps(context) {
-  return {
-    props: {it:"worked"}, // will be passed to the page component as props
-  }
-}
+import Layout from "components/Layout"
 `;
 
 const loader = async function (content) {
@@ -19,6 +23,16 @@ const loader = async function (content) {
   const options = Object.assign({}, getOptions(this), {
     filepath: this.resourcePath,
   });
+
+  let shouldRenderOnServer = false;
+  // if (
+  //   versionsForStaticSiteGeneration.find((v) =>
+  //     this.resourcePath.includes(v)
+  //   ) ||
+  //   content.includes("getServerSideProps")
+  // ) {
+  //   shouldRenderOnServer = false;
+  // }
 
   let result;
 
@@ -30,7 +44,16 @@ const loader = async function (content) {
 
   const { renderer = DEFAULT_RENDERER } = options;
 
-  const code = `${renderer}\n${result}\n${ssrCode}`;
+  const code = `${renderer}\n${result}\n
+  MDXContent.getLayout = function getLayout(page, pageProps) {
+    return (
+        <Layout pageProps={pageProps}>{page}</Layout>
+    )
+  }\n
+  ${shouldRenderOnServer ? codeForServerSideOnlyPages : ""}
+  `;
+
+  console.log("mdx to jsx code", code);
 
   return callback(null, code);
 };

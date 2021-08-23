@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "(cd @mdx-js/loader && yarn); (cd @mdx-js/mdx && yarn); (cd @mdx-js/react && yarn); (cd @mdx-js/util && yarn);"
   },
   "dependencies": {
     "next": "11.0.1",

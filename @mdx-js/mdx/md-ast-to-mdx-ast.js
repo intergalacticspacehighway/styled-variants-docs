@@ -1,13 +1,13 @@
-const visit = require('unist-util-visit')
-const {isComment, getCommentContents} = require('@mdx-js/util')
+const visit = require("unist-util-visit");
+const { isComment, getCommentContents } = require("../util");
 
-module.exports = _options => tree => {
-  visit(tree, 'jsx', node => {
+module.exports = (_options) => (tree) => {
+  visit(tree, "jsx", (node) => {
     if (isComment(node.value)) {
-      node.type = 'comment'
-      node.value = getCommentContents(node.value)
+      node.type = "comment";
+      node.value = getCommentContents(node.value);
     }
-  })
+  });
 
-  return tree
-}
+  return tree;
+};
