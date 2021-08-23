@@ -1,13 +1,15 @@
 const { getOptions } = require("loader-utils");
-const mdx = require("@mdx-js/mdx");
-const versionsForStaticSiteGeneration = require("../versions.json");
+const mdx = require("../@mdx-js/mdx");
+// const versionsForStaticSiteGeneration = require("../static-versions.json");
 
 const codeForServerSideOnlyPages = `
-  export async function getServerSideProps() {
-    return {
-      props: {}
-    }
-  }
+export async function getServerSideProps() {
+  return {
+    props: {
+    },
+  };
+}
+
 `;
 
 const DEFAULT_RENDERER = `
@@ -22,12 +24,15 @@ const loader = async function (content) {
     filepath: this.resourcePath,
   });
 
-  let shouldRenderOnServer = true;
-  if (
-    versionsForStaticSiteGeneration.find((v) => this.resourcePath.includes(v))
-  ) {
-    shouldRenderOnServer = false;
-  }
+  let shouldRenderOnServer = false;
+  // if (
+  //   versionsForStaticSiteGeneration.find((v) =>
+  //     this.resourcePath.includes(v)
+  //   ) ||
+  //   content.includes("getServerSideProps")
+  // ) {
+  //   shouldRenderOnServer = false;
+  // }
 
   let result;
 
@@ -47,6 +52,8 @@ const loader = async function (content) {
   }\n
   ${shouldRenderOnServer ? codeForServerSideOnlyPages : ""}
   `;
+
+  console.log("mdx to jsx code", code);
 
   return callback(null, code);
 };

@@ -1,1 +1,16 @@
-# hey from 0.1
+import fs from "fs";
+import path from "path";
+
+# hey from ${props.name}
+
+<div>{props.name}</div>
+
+export async function getStaticProps() {
+  const file = path.join(process.cwd(), "text-api.txt");
+  const content = fs.readFileSync(file, { encoding: "utf-8" });
+  return {
+    props: {
+      name: content,
+    },
+  };
+}
