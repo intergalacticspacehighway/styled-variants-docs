@@ -9,7 +9,7 @@ export const StyledText = createVariant(Text, {
       true: {
         color: "$colors.blueGray100",
         paddingHorizontal: "$space.16",
-        paddingVertical: "$space.5",
+        paddingVertical: "$space.4",
       },
     },
     focused: {
@@ -29,6 +29,7 @@ export const StyledText = createVariant(Text, {
     },
     size: {
       xl: { fontSize: "$fontSizes.xl" },
+      "2xl": { fontSize: "$fontSizes.2xl" },
     },
     bold: {
       true: { fontWeight: "800" },

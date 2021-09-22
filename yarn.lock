@@ -476,10 +476,10 @@ axobject-query@^2.2.0:
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-2.2.0.tgz#943d47e10c0b704aa42275e20edf3722648989be"
   integrity sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA==
 
-babel-plugin-styled-variants@^0.1.1-alpha.4:
-  version "0.1.1-alpha.4"
-  resolved "https://registry.yarnpkg.com/babel-plugin-styled-variants/-/babel-plugin-styled-variants-0.1.1-alpha.4.tgz#897281e4bd18861506e44ee61131b16897b4e7d4"
-  integrity sha512-RijqfRjx6I6IVgfw4RvmOOYzWg3nYkLQWJ+tdPGimDnrodB9YgjbX2Rtns94RRqcETxQrAs4zDOljN4YAW2p+A==
+babel-plugin-styled-variants@^0.1.1-alpha.6:
+  version "0.1.1-alpha.6"
+  resolved "https://registry.yarnpkg.com/babel-plugin-styled-variants/-/babel-plugin-styled-variants-0.1.1-alpha.6.tgz#f71049b32491f2a9993eeada2c7130d001c363c4"
+  integrity sha512-wKG4kIMyFroxjrELgGJGSopKbxEfsxvY1jp/qA2fUDdCBlLAsmn1lwc+g/j2xa0NQwgwUIaZ5agpwkd5ugJyiw==
   dependencies:
     "@babel/helper-module-imports" "^7.15.4"
     "@babel/template" "^7.15.4"
