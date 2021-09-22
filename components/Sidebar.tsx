@@ -9,7 +9,7 @@ export const Sidebar = () => {
   const route = useRouter();
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={{ flex: 1 }}>
       <View
         sx={{
           alignItems: "center",
@@ -30,9 +30,30 @@ export const Sidebar = () => {
           </Link>
         </Button>
         <Button focusable={false}>
+          <Link href="/installation" passHref>
+            <StyledText sidebar focused={route.pathname === "/installation"}>
+              Installation
+            </StyledText>
+          </Link>
+        </Button>
+        <Button focusable={false}>
           <Link href="/variants" passHref>
             <StyledText sidebar focused={route.pathname === "/variants"}>
               Variants
+            </StyledText>
+          </Link>
+        </Button>
+        <Button focusable={false}>
+          <Link href="/sx-prop" passHref>
+            <StyledText sidebar focused={route.pathname === "/sx-prop"}>
+              SX prop
+            </StyledText>
+          </Link>
+        </Button>
+        <Button focusable={false}>
+          <Link href="/flow-variants" passHref>
+            <StyledText sidebar focused={route.pathname === "/flow-variants"}>
+              How it works?
             </StyledText>
           </Link>
         </Button>
