@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <View
-        style={{ backgroundColor: "black", height: 100, width: 100 }}
+        sx={{ backgroundColor: "$colors.pink", height: 100, width: 100 }}
       ></View>
       <Head>
         <title>Create Next App</title>
