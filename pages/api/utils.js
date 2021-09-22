@@ -2,6 +2,7 @@ const { parse } = require("@babel/parser");
 const traverse = require("@babel/traverse").default;
 const generate = require("@babel/generator").default;
 const visitor = require("babel-plugin-styled-variants/visitor");
+const prettier = require("prettier");
 const utilityPropVisitor = require("babel-plugin-styled-variants/utility-prop-visitor");
 
 function transform(code) {
@@ -20,7 +21,7 @@ function transform(code) {
   });
 
   const output = generate(ast, code);
-  return output.code;
+  return prettier.format(output.code);
 }
 
 module.exports = { transform };

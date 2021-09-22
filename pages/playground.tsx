@@ -2,6 +2,12 @@ import { StyledText } from "components/variants";
 import React, { useEffect, useState } from "react";
 import { TextInput, View } from "react-native";
 import { createVariant } from "theme";
+import Editor from "react-simple-code-editor";
+//@ts-ignore
+import { highlight, languages } from "prismjs/components/prism-core";
+import "prismjs/components/prism-clike";
+import "prismjs/components/prism-javascript";
+import { useTheme } from "react-native-styled-variants";
 
 const initialState = `
 const App = () => {
@@ -38,6 +44,7 @@ const RenderClient = ({ children }: any) => {
 
 export default function Playground() {
   const [text, setText] = React.useState(initialState);
+  const theme = useTheme().theme;
   const [output, setOutput] = React.useState(initialState);
 
   useEffect(() => {
@@ -57,35 +64,49 @@ export default function Playground() {
       <View
         sx={{ flexDirection: { "@base": "column", "@lg": "row" }, flex: 1 }}
       >
-        <View sx={{ flex: 1 }}>
+        <View
+          sx={{ flex: 1, borderColor: "$colors.blueGray300", borderWidth: 1 }}
+        >
           <StyledText bold sx={{ margin: "$space.5" }}>
             Input
           </StyledText>
-          <CodeEditor
-            onChangeText={(e) => setText(e)}
+          <Editor
             value={text}
-            multiline
-            numberOfLines={50}
+            onValueChange={(code) => setText(code)}
+            highlight={(code) => highlight(code, languages.js)}
+            padding={10}
+            style={{
+              fontFamily: '"Fira code", "Fira Mono", monospace',
+              fontSize: 12,
+              height: "100%",
+            }}
           />
         </View>
-        <View sx={{ flex: 1 }}>
+        <View
+          sx={{
+            flex: 1,
+            borderColor: "$colors.blueGray300",
+            borderRightWidth: 1,
+            borderTopWidth: 1,
+            borderBottomWidth: 1,
+          }}
+        >
           <StyledText bold sx={{ margin: "$space.5" }}>
             Output
           </StyledText>
-          <CodeEditor
-            editable={false}
+          <Editor
             value={output}
-            multiline
-            numberOfLines={50}
+            onValueChange={() => {}}
+            highlight={(code) => highlight(code, languages.js)}
+            padding={10}
+            style={{
+              fontFamily: '"Fira code", "Fira Mono", monospace',
+              fontSize: 12,
+              height: "100%",
+            }}
           />
         </View>
       </View>
     </RenderClient>
   );
 }
-
-const CodeEditor = createVariant(TextInput, {
-  borderWidth: 1,
-  borderColor: "$colors.primary",
-  padding: "$space.5",
-});

@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "../styles/night-owl.css";
 import { MDXProvider } from "@mdx-js/react";
 import type { AppProps } from "next/app";
 import { NextPage } from "next";
