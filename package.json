@@ -10,9 +10,13 @@
     "postinstall": "(cd @mdx-js/loader && yarn); (cd @mdx-js/mdx && yarn); (cd @mdx-js/react && yarn); (cd @mdx-js/util && yarn);"
   },
   "dependencies": {
+    "@types/react-native": "^0.65.1",
+    "babel-plugin-styled-variants": "^0.1.1-alpha.4",
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-native-styled-variants": "^0.1.1-alpha.4",
+    "react-native-web": "^0.17.1"
   },
   "devDependencies": {
     "@types/react": "17.0.15",

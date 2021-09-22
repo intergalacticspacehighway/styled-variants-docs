@@ -1,8 +1,10 @@
 import fs from "fs";
 import path from "path";
+import { View } from "react-native";
 
 # hey from ${props.name}
 
+<View style={{ backgroundColor: "black", height: 100, width: 100 }}></View>
 <div>{props.name}</div>
 
 export async function getStaticProps() {
