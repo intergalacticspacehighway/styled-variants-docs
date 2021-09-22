@@ -28,12 +28,15 @@ export default function Home() {
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Installation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
+            <p>Steps to install styled variants in your react native project</p>
           </a>
 
           <a href="https://nextjs.org/learn" className={styles.card}>
             <h2>Variants &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+            <p>
+              Learn how to create variants with interactive and responsive
+              styling{" "}
+            </p>
           </a>
 
           <a
@@ -41,7 +44,7 @@ export default function Home() {
             className={styles.card}
           >
             <h2>SX prop &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+            <p>Discover sx prop for inline styling that is memoized</p>
           </a>
 
           <a
@@ -49,9 +52,7 @@ export default function Home() {
             className={styles.card}
           >
             <h2>How it works? &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+            <p>Refer the transpilation flow of variants and sx prop</p>
           </a>
         </div>
       </main>
