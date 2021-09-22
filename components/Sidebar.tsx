@@ -51,6 +51,13 @@ export const Sidebar = () => {
           </Link>
         </Button>
         <Button focusable={false}>
+          <Link href="/playground" passHref>
+            <StyledText sidebar focused={route.pathname === "/playground"}>
+              Compiler playground
+            </StyledText>
+          </Link>
+        </Button>
+        <Button focusable={false}>
           <Link href="/flow-variants" passHref>
             <StyledText sidebar focused={route.pathname === "/flow-variants"}>
               How it works?

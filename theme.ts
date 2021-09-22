@@ -66,7 +66,15 @@ const theme = {
   space,
   fontSizes,
 };
-const breakpoints = { sm: 100, base: 0 };
+
+const breakpoints = {
+  base: 0,
+  sm: 480,
+  md: 768,
+  lg: 992,
+  xl: 1280,
+  "2xl": 1536,
+};
 
 export const { createVariant, ThemeProvider } = createTheme({
   theme,

@@ -10,6 +10,10 @@
     "postinstall": "(cd @mdx-js/loader && yarn); (cd @mdx-js/mdx && yarn); (cd @mdx-js/react && yarn); (cd @mdx-js/util && yarn);"
   },
   "dependencies": {
+    "@babel/generator": "^7.15.4",
+    "@babel/parser": "^7.15.7",
+    "@babel/standalone": "^7.15.7",
+    "@babel/traverse": "^7.15.4",
     "@types/react-native": "^0.65.1",
     "babel-plugin-styled-variants": "^0.1.1-alpha.6",
     "next": "11.0.1",
