@@ -1,5 +1,11 @@
+import { View, Text } from "react-native";
+
 const Test = () => {
-  return <div>Test</div>;
+  return (
+    <View>
+      <Text>Test</Text>
+    </View>
+  );
 };
 
 export default Test;

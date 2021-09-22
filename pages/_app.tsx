@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import { NextPage } from "next";
 import { ReactElement, ReactNode } from "react";
 import { components } from "../components/markdown";
+import { Layout } from "../components/Layout";
 import { ThemeProvider } from "../theme";
 
 type NextPageWithLayout = NextPage & {
@@ -19,7 +20,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return getLayout(
     <ThemeProvider>
       <MDXProvider components={components}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </MDXProvider>
     </ThemeProvider>,
     pageProps
