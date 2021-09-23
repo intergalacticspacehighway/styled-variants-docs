@@ -1,6 +1,6 @@
 import { StyledText } from "components/variants";
 import React, { useEffect, useState } from "react";
-import { TextInput, View } from "react-native";
+import { TextInput, View, ScrollView } from "react-native";
 import { createVariant } from "theme";
 import Editor from "react-simple-code-editor";
 //@ts-ignore
@@ -10,15 +10,45 @@ import "prismjs/components/prism-javascript";
 import { useTheme } from "../theme";
 
 const initialState = `
-import { View } from "react-native";
+import { Text } from "react-native";
+import { createVariant } from "../theme";
 
-const App = () => {
-  return (
-    <View
-      sx={{ margin: 10, backgroundColor: '$colors.primary', padding: 10 }}
-    />
-  );
-};`;
+export const StyledText = createVariant(Text, {
+  color: "$colors.blueGray900",
+  fontSize: "$fontSizes.md",
+  variants: {
+    sidebar: {
+      true: {
+        color: "$colors.blueGray100",
+        paddingHorizontal: "$space.16",
+        paddingVertical: "$space.4",
+      },
+    },
+    focused: {
+      true: {
+        color: "white",
+        backgroundColor: "$colors.blueGray800",
+      },
+    },
+    primary: {
+      true: { color: "$colors.primary" },
+    },
+    secondary: {
+      true: { fontSize: "$fontSizes.md" },
+    },
+    heading: {
+      true: { fontSize: "$fontSizes.2xl", fontWeight: "800" },
+    },
+    size: {
+      xl: { fontSize: "$fontSizes.xl" },
+      "2xl": { fontSize: "$fontSizes.2xl" },
+    },
+    bold: {
+      true: { fontWeight: "800" },
+    },
+  },
+});
+`;
 
 const fetchTransformedCode = async (data: any) => {
   try {
@@ -68,7 +98,7 @@ export default function Playground() {
           height: "100%",
         }}
       >
-        <View
+        <ScrollView
           sx={{
             flex: 1,
             borderColor: "$colors.blueGray300",
@@ -89,8 +119,8 @@ export default function Playground() {
               height: "100%",
             }}
           />
-        </View>
-        <View
+        </ScrollView>
+        <ScrollView
           sx={{
             flex: 1,
             borderColor: "$colors.blueGray300",
@@ -111,7 +141,7 @@ export default function Playground() {
               height: "100%",
             }}
           />
-        </View>
+        </ScrollView>
       </View>
     </RenderClient>
   );

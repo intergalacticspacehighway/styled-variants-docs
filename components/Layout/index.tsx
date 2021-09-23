@@ -19,9 +19,7 @@ export const Layout = ({ children }: any) => {
         <Sidebar />
       </View>
       <View sx={{ flex: 4, backgroundColor: "$colors.blueGray50" }}>
-        <ScrollView contentContainerSX={{ minHeight: "100%" }}>
-          {children}
-        </ScrollView>
+        <View sx={{ height: "100%" }}>{children}</View>
       </View>
     </View>
   );
