@@ -76,7 +76,7 @@ const breakpoints = {
   "2xl": 1536,
 };
 
-export const { createVariant, ThemeProvider } = createTheme({
+export const { createVariant, ThemeProvider, useTheme } = createTheme({
   theme,
   breakpoints,
 });

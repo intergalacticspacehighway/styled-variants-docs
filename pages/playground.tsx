@@ -7,19 +7,18 @@ import Editor from "react-simple-code-editor";
 import { highlight, languages } from "prismjs/components/prism-core";
 import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
-import { useTheme } from "react-native-styled-variants";
+import { useTheme } from "../theme";
 
 const initialState = `
+import { View } from "react-native";
+
 const App = () => {
-    const renderIcon = <View sx={{ color: '$colors.maroon.1' }} />;
-  
-    return <>
-      {list.map(item => {
-        return <View sx={{margin: "$colors.blue", padding: {"@base" : 10, "@sm": 20} }} style={[{margin: 10}]} />
-      })}
-    </>
-  }
-  `;
+  return (
+    <View
+      sx={{ margin: 10, backgroundColor: '$colors.primary', padding: 10 }}
+    />
+  );
+};`;
 
 const fetchTransformedCode = async (data: any) => {
   try {
@@ -62,10 +61,19 @@ export default function Playground() {
   return (
     <RenderClient>
       <View
-        sx={{ flexDirection: { "@base": "column", "@lg": "row" }, flex: 1 }}
+        nativeID="112"
+        sx={{
+          flexDirection: { "@base": "column", "@lg": "row" },
+          flex: 1,
+          height: "100%",
+        }}
       >
         <View
-          sx={{ flex: 1, borderColor: "$colors.blueGray300", borderWidth: 1 }}
+          sx={{
+            flex: 1,
+            borderColor: "$colors.blueGray300",
+            borderWidth: 1,
+          }}
         >
           <StyledText bold sx={{ margin: "$space.5" }}>
             Input
@@ -74,10 +82,10 @@ export default function Playground() {
             value={text}
             onValueChange={(code) => setText(code)}
             highlight={(code) => highlight(code, languages.js)}
-            padding={10}
+            padding={theme.space[5]}
             style={{
               fontFamily: '"Fira code", "Fira Mono", monospace',
-              fontSize: 12,
+              fontSize: theme.fontSizes.sm,
               height: "100%",
             }}
           />
@@ -86,8 +94,6 @@ export default function Playground() {
           sx={{
             flex: 1,
             borderColor: "$colors.blueGray300",
-            borderRightWidth: 1,
-            borderTopWidth: 1,
             borderBottomWidth: 1,
           }}
         >
@@ -98,10 +104,10 @@ export default function Playground() {
             value={output}
             onValueChange={() => {}}
             highlight={(code) => highlight(code, languages.js)}
-            padding={10}
+            padding={theme.space[5]}
             style={{
               fontFamily: '"Fira code", "Fira Mono", monospace',
-              fontSize: 12,
+              fontSize: theme.fontSizes.sm,
               height: "100%",
             }}
           />

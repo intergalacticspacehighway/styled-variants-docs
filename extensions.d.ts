@@ -6,6 +6,9 @@ declare module "react-native" {
   interface ViewProps {
     sx?: RNStyles<ITheme, IBreakpoints>;
   }
+  interface ScrollViewProps {
+    contentContainerSX?: RNStyles<ITheme, IBreakpoints>;
+  }
   interface ImageProps {
     sx?: RNStyles<ITheme, IBreakpoints>;
   }
