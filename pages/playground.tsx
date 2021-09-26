@@ -70,6 +70,7 @@ export default function Playground() {
           flexDirection: { "@base": "column", "@lg": "row" },
           flex: 1,
           height: "100%",
+          maxHeight: "95vh",
         }}
       >
         <ScrollView
@@ -99,6 +100,7 @@ export default function Playground() {
             flex: 1,
             borderColor: "$colors.blueGray300",
             borderBottomWidth: 1,
+            maxHeight: "95vh",
           }}
         >
           <StyledText bold sx={{ margin: "$space.5" }}>

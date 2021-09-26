@@ -68,3 +68,46 @@ export default const App = () => {
 
 <br />
 <br />
+
+## useTheme
+
+- `createTheme` util returns a `useTheme` hook that includes a theme setter and theme object.
+- This hook won't be needed for most of the cases, but it's there if you need to access theme tokens in a component.
+
+```jsx
+import { useTheme } from "./theme";
+
+export default const App = () => {
+  const { theme, setTheme } = useTheme();
+};
+```
+
+<video
+  src="/use-theme.mov"
+  height="300px"
+  controls
+  style={{ maxWidth: "100%" }}
+/>
+
+<br />
+<br />
+
+## useCurrentBreakpoint
+
+- `createTheme` util returns a `useCurrentBreakpoint` hook that includes current breakpoint from the breakpoints passed in `createTheme` function.
+- This hook won't be needed for most of the cases, but it's there if you need to access current breakpoint or a helper function `resolveResponsiveValue`.
+
+```jsx
+import { useCurrentBreakpoint } from "./theme";
+
+export default const App = () => {
+  const {resolveResponsiveValue, currentBreakpoint} = useCurrentBreakpoint();
+};
+```
+
+<video
+  src="/use-current-breakpoint.mov"
+  height="300px"
+  controls
+  style={{ maxWidth: "100%" }}
+/>
