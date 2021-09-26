@@ -53,17 +53,17 @@ export const Sidebar = () => {
         <Button focusable={false}>
           <Link href="/playground" passHref>
             <StyledText sidebar focused={route.pathname === "/playground"}>
-              Compiler playground
+              Transpiler playground
             </StyledText>
           </Link>
         </Button>
-        <Button focusable={false}>
+        {/* <Button focusable={false}>
           <Link href="/flow-variants" passHref>
             <StyledText sidebar focused={route.pathname === "/flow-variants"}>
               How it works?
             </StyledText>
           </Link>
-        </Button>
+        </Button> */}
       </View>
     </ScrollView>
   );

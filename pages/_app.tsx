@@ -17,16 +17,14 @@ type AppPropsWithLayout = AppProps & {
 };
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout ?? ((page) => page);
-  return getLayout(
+  return (
     <ThemeProvider>
       <MDXProvider components={components}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
       </MDXProvider>
-    </ThemeProvider>,
-    pageProps
+    </ThemeProvider>
   );
 }
 export default MyApp;

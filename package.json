@@ -15,7 +15,7 @@
     "@babel/standalone": "^7.15.7",
     "@babel/traverse": "^7.15.4",
     "@types/react-native": "^0.65.1",
-    "babel-plugin-styled-variants": "^0.1.4",
+    "babel-plugin-styled-variants": "^0.1.5",
     "next": "11.0.1",
     "prettier": "^2.4.1",
     "prismjs": "^1.25.0",

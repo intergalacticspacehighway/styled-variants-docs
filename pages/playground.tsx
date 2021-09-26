@@ -81,7 +81,7 @@ export default function Playground() {
       fetchTransformedCode(text)
         .then((v) => setOutput(v))
         .catch((e) => setOutput(e));
-    }, 500);
+    }, 700);
 
     return () => {
       clearTimeout(timeout);

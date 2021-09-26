@@ -8,7 +8,7 @@ export const StyledText = createVariant(Text, {
     sidebar: {
       true: {
         color: "$colors.blueGray100",
-        paddingHorizontal: "$space.16",
+        paddingHorizontal: "$space.10",
         paddingVertical: "$space.4",
       },
     },
