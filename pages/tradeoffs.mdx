@@ -7,7 +7,8 @@
 This adds some tradeoffs for runtime resolution.
 
 <br />
-e.g. Something like this cannot be done.
+
+## This won't work
 
 ```jsx
 const style = {
@@ -19,7 +20,9 @@ const App = () => {
 };
 ```
 
-- `sx` prop is resolved and converted to stylesheet or style object during build time. Thus the token values should be used inline.
+- `sx` prop is resolved and converted to stylesheet or style object during build time.
+
+### Change above to below
 
 ```jsx
 const App = () => {
@@ -38,6 +41,26 @@ const App = () => {
   const { theme } = useTheme();
   const themeSpaceToken = theme.space["10"];
   return <View style={{ padding: themeSpaceToken }} />;
+};
+```
+
+<br />
+<br />
+<br />
+
+## This won't work
+
+```jsx
+const a = <Text sx={{ color: "$colors.blue" }} />;
+```
+
+- **sx prop can only be used inside a component**
+
+### Change above to below
+
+```jsx
+const A = () => {
+  return <Text sx={{ color: "$colors.blue" }} />;
 };
 ```
 
