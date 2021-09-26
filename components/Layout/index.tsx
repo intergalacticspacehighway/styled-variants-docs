@@ -2,7 +2,6 @@ import { ScrollView, View, Pressable, Text } from "react-native";
 import { Sidebar } from "../Sidebar";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ClientOnly } from "components/ClientOnly";
 import Link from "next/link";
 import { useCurrentBreakpoint } from "react-native-styled-variants";
 import Image from "next/image";
@@ -28,12 +27,10 @@ export const Layout = ({ children }: any) => {
         minHeight: "100%",
       }}
     >
-      <ClientOnly>
-        <Sidebar
-          show={showSidebar}
-          hide={useCallback(() => setShowSidebar(false), [])}
-        />
-      </ClientOnly>
+      <Sidebar
+        show={showSidebar}
+        hide={useCallback(() => setShowSidebar(false), [])}
+      />
 
       <View sx={{ flex: 4, backgroundColor: "$colors.blueGray50" }}>
         <ScrollView ref={scrollRef} sx={{ height: "100%" }}>

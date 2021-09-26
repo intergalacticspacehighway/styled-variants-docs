@@ -7,6 +7,7 @@ import { ReactElement, ReactNode } from "react";
 import { components } from "../components/markdown";
 import { Layout } from "../components/Layout";
 import { ThemeProvider } from "../theme";
+import { ClientOnly } from "components/ClientOnly";
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement, pageProps: AppProps) => ReactNode;
@@ -20,9 +21,11 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <ThemeProvider>
       <MDXProvider components={components}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <ClientOnly>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ClientOnly>
       </MDXProvider>
     </ThemeProvider>
   );
