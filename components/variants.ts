@@ -30,9 +30,22 @@ export const StyledText = createVariant(Text, {
     size: {
       xl: { fontSize: "$fontSizes.xl" },
       "2xl": { fontSize: "$fontSizes.2xl" },
+      "5xl": { fontSize: "$fontSizes.5xl" },
     },
     bold: {
       true: { fontWeight: "800" },
+    },
+    h1: {
+      true: { fontSize: "$fontSizes.4xl", fontWeight: "900" },
+    },
+    h2: {
+      true: { fontSize: "$fontSizes.3xl", fontWeight: "800" },
+    },
+    h3: {
+      true: { fontSize: "$fontSizes.2xl", fontWeight: "600" },
+    },
+    h4: {
+      true: { fontSize: "$fontSizes.lg", fontWeight: "600" },
     },
   },
 });

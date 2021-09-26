@@ -12,9 +12,8 @@ export const Sidebar = () => {
     <ScrollView contentContainerStyle={{ flex: 1 }}>
       <View
         sx={{
-          alignItems: "center",
           justifyContent: "center",
-          paddingVertical: "$space.10",
+          padding: "$space.10",
         }}
       >
         <StyledText size="xl" bold sx={{ color: "$colors.teal300" }}>
@@ -23,23 +22,16 @@ export const Sidebar = () => {
       </View>
       <View>
         <Button focusable={false}>
-          <Link href="/" passHref>
-            <StyledText sidebar focused={route.pathname === "/"}>
-              About
-            </StyledText>
-          </Link>
-        </Button>
-        <Button focusable={false}>
-          <Link href="/installation" passHref>
-            <StyledText sidebar focused={route.pathname === "/installation"}>
-              Installation
+          <Link href="/quick-start" passHref>
+            <StyledText sidebar focused={route.pathname === "/quick-start"}>
+              Quick start
             </StyledText>
           </Link>
         </Button>
         <Button focusable={false}>
           <Link href="/variants" passHref>
             <StyledText sidebar focused={route.pathname === "/variants"}>
-              Variants
+              Create Variant
             </StyledText>
           </Link>
         </Button>

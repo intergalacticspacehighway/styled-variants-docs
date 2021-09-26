@@ -57,12 +57,19 @@ const fontSizes = {
   sm: 14,
   md: 16,
   lg: 18,
-  xl: 28,
-  "2xl": 48,
+  xl: 24,
+  "2xl": 28,
+  "3xl": 32,
+  "4xl": 48,
 };
 
 const theme = {
-  colors: { ...grays, primary: teal.teal500, ...teal },
+  colors: {
+    ...grays,
+    primary: teal.teal500,
+    ...teal,
+    tertiary: "rgb(237 148 22)",
+  },
   space,
   fontSizes,
 };

@@ -1,0 +1,164 @@
+# Installation
+
+#### Using yarn
+
+```bash
+yarn add react-native-styled-variants
+yarn add babel-plugin-styled-variants -D
+```
+
+#### Using npm
+
+```bash
+npm i react-native-styled-variants
+npm i babel-plugin-styled-variants -D
+```
+
+<br />
+
+# Babel plugin
+
+- Add Styled Variant's babel plugin to your babel.config.js:
+
+```js
+  module.exports = {
+      ...
+      plugins: [
+          'styled-variants',
+          ...
+      ],
+  };
+
+```
+
+<br />
+
+# Theme
+
+## createTheme
+
+- `createTheme` function is a helper function to create theme. It returns with utilities that can be used within the application.
+
+#### Import
+
+```jsx
+import { createTheme } from "react-native-styled-variants";
+```
+
+#### Usage
+
+```jsx
+import { createTheme } from "react-native-styled-variants";
+const theme = {
+  space: {
+    1: 4,
+    1.5: 6,
+    2: 8,
+    2.5: 10,
+    3: 12,
+    3.5: 14,
+    4: 16,
+  },
+  fontSizes: {
+    sm: 14,
+    md: 16,
+    lg: 18,
+    xl: 24,
+    "2xl": 28,
+    "3xl": 32,
+    "4xl": 48,
+  },
+  colors: {
+    primary: "#000",
+  },
+};
+
+const breakpoints = {
+  base: 0,
+  sm: 480,
+  md: 768,
+  lg: 992,
+  xl: 1280,
+};
+
+export const { createVariant, ThemeProvider, useTheme } = createTheme({
+  theme,
+  breakpoints,
+});
+```
+
+<br />
+<br />
+
+## ThemeProvider
+
+- `createTheme` util returns a `ThemeProvider` that should be wrapped over the entire application.
+
+```jsx
+import { ThemeProvider } from "./theme";
+
+export default const App = () => {
+  return <ThemeProvider>{/* Your app goes here */}</ThemeProvider>;
+};
+```
+
+<br />
+<br />
+
+## SX prop
+
+- `sx` prop can be used to write inline styles in the component. Babel plugin will make sure to resolve the tokens and memoize the inline style object.
+
+```jsx
+import { ThemeProvider } from "./theme";
+import { View } from "react-native";
+
+export default const App = () => {
+  return (
+    <ThemeProvider>
+      <Screen />
+    </ThemeProvider>
+  );
+};
+
+const Screen = () => {
+  return <View sx={{ backgroundColor: "$colors.primary" }} />;
+};
+```
+
+<br />
+<br />
+
+## Create variants
+
+- `createVariant` returned from `createTheme` can be used to create new variants of any React Native Built in components.
+
+```jsx
+import { createVariant } from "./theme";
+import { Pressable } from "react-native";
+
+const Button = createVariant(Pressable, {
+  paddingHorizontal: "$space.5",
+  paddingVertical: "$space.4",
+  variants: {
+    solid: {
+      true: {
+        backgroundColor: "$colors.primary",
+      },
+    },
+    size: {
+      lg: {
+        paddingHorizontal: "$space.8",
+        paddingVertical: "$space.6",
+      },
+    },
+  },
+});
+
+// Usage
+<Button primary size="lg"></Button>;
+```
+
+<br />
+
+- **Refer [SX prop](sx-prop) and [createVariant](createVariant) for more details.**

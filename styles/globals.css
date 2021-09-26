@@ -29,3 +29,12 @@ body {
   display: flex;
   height: 100%;
 }
+
+pre {
+  margin: 0;
+}
+
+ul,
+li {
+  margin: 0;
+}
