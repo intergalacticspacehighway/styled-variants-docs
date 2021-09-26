@@ -1,0 +1,47 @@
+# SX prop
+
+- `sx` prop can be used to write inline styles with responsive and token values. It is memoized into StyleSheet.create using `useMemo` if it doesn't contain a variable. `sx` prop can be used in any component that supports `style` prop.
+
+## Usage
+
+```jsx
+import { View } from "react-native";
+
+const Component = () => {
+  <View
+    sx={{
+      padding: "$space.10",
+      borderRadius: 10,
+      backgroundColor: "$colors.primary",
+    }}
+  />;
+};
+```
+
+<video
+  src="/sx-prop.mov"
+  height="300px"
+  style={{ maxWidth: "100%" }}
+  controls
+/>
+
+<br />
+<br />
+
+## Responsive tokens
+
+Responsive breakpoints passed in `createTheme` can be used as below. Note the `@` prefix is required.
+
+```jsx
+import { View } from "react-native";
+
+const Component = () => {
+  <View
+    sx={{
+      padding: { "@base": "$space.8", "@sm": "$space.10", "@md": "$space.16" },
+      borderRadius: 10,
+      backgroundColor: "$colors.primary",
+    }}
+  />;
+};
+```

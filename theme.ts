@@ -59,7 +59,7 @@ const fontSizes = {
   lg: 18,
   xl: 24,
   "2xl": 28,
-  "3xl": 32,
+  "3xl": 36,
   "4xl": 48,
 };
 
@@ -72,6 +72,9 @@ const theme = {
   },
   space,
   fontSizes,
+  lineHeights: {
+    "1": "24px",
+  },
 };
 
 const breakpoints = {

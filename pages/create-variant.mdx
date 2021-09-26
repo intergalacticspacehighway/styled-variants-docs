@@ -1,0 +1,111 @@
+# createVariant
+
+Create variant provides an interface to define base and variant styles for a component.
+
+<br />
+
+## Base style
+
+`createVariant` accepts all the React Native styles and more as the second argument. Theme tokens will be suggested if you're using TypeScript.
+
+```js
+const Button = createVariant(Pressable, {
+  padding: "$space.10",
+});
+```
+
+<video
+  src="/create-variant.mov"
+  height="300px"
+  style={{ maxWidth: "100%" }}
+  controls
+/>
+
+<br />
+<br />
+
+## Variants
+
+- Variants can be specified in the variants object. Here, we're defining a variant named primary and it's value as true.
+
+```js
+const Button = createVariant(Pressable, {
+  padding: "$space.10",
+  borderRadius: 10,
+  variants: {
+    primary: {
+      true: {
+        backgroundColor: "$colors.primary",
+      },
+    },
+    size: {
+      lg: {
+        padding: "$space.12",
+      },
+    },
+  },
+});
+
+// Usage
+<Button primary size="lg" />;
+```
+
+<video
+  src="/create-variant-primary.mov"
+  height="500px"
+  style={{ maxWidth: "100%" }}
+  controls
+/>
+
+<br />
+<br />
+
+## Interaction styles
+
+- `_hover`, `_pressed`, `_focus` styles can be specified in `createVariant` API
+
+```js
+const Button = createVariant(Pressable, {
+  padding: "$space.10",
+  variants: {
+    primary: {
+      true: {
+        backgroundColor: "$colors.primary",
+      },
+    },
+  },
+  _hover: {
+    backgroundColor: "$colors.hover",
+  },
+});
+```
+
+<br />
+<br />
+
+## Responsive styles
+
+- We can define responsive values using `@` tokens.
+
+```js
+const Button = createVariant(Pressable, {
+  padding: { "@base": "$space.10", "@sm": "$space.8" }
+  variants: {
+    primary: {
+      true: {
+        backgroundColor: "$colors.primary",
+      },
+    },
+  },
+  _hover: {
+    backgroundColor: "$colors.hover",
+  },
+});
+```
+
+<video
+  src="/create-variant-responsive.mov"
+  height="400px"
+  style={{ maxWidth: "100%" }}
+  controls
+/>

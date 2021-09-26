@@ -1,4 +1,4 @@
-import { Text } from "react-native";
+import { Pressable, Text } from "react-native";
 import { createVariant } from "../theme";
 
 export const StyledText = createVariant(Text, {
@@ -42,7 +42,7 @@ export const StyledText = createVariant(Text, {
       true: { fontSize: "$fontSizes.3xl", fontWeight: "800" },
     },
     h3: {
-      true: { fontSize: "$fontSizes.2xl", fontWeight: "600" },
+      true: { fontSize: "$fontSizes.2xl", fontWeight: "700" },
     },
     h4: {
       true: { fontSize: "$fontSizes.lg", fontWeight: "600" },

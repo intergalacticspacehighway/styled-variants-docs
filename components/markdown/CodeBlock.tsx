@@ -1,4 +1,4 @@
-import nightOwnLight from "prism-react-renderer/themes/shadesOfPurple";
+import nightOwnLight from "prism-react-renderer/themes/nightOwl";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import { View } from "react-native";
 
