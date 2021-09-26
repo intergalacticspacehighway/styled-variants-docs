@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Pressable, View, ScrollView, Text } from "react-native";
 import Link from "next/link";
 import { createVariant } from "../theme";
 import { useRouter } from "next/router";
 import { StyledText } from "./variants";
+import { useCurrentBreakpoint } from "react-native-styled-variants";
+import Image from "next/image";
+import closeSvg from "../public/close.svg";
 
-export const Sidebar = () => {
+export const Sidebar = ({
+  show,
+  hide,
+}: {
+  show: boolean;
+  hide: () => void;
+}) => {
   const route = useRouter();
+  const { resolveResponsiveValue } = useCurrentBreakpoint();
 
-  return (
+  useEffect(() => {
+    hide();
+  }, [route.pathname, hide]);
+
+  const contentView = (
     <ScrollView contentContainerStyle={{ flex: 1 }}>
       <View
         sx={{
@@ -16,9 +30,11 @@ export const Sidebar = () => {
           padding: "$space.10",
         }}
       >
-        <StyledText size="xl" bold sx={{ color: "$colors.teal300" }}>
-          Styled Variants
-        </StyledText>
+        <Link href="/" passHref>
+          <StyledText size="xl" bold sx={{ color: "$colors.teal300" }}>
+            Styled Variants
+          </StyledText>
+        </Link>
       </View>
       <View>
         <Button focusable={false}>
@@ -56,16 +72,57 @@ export const Sidebar = () => {
             </StyledText>
           </Link>
         </Button>
-        {/* <Button focusable={false}>
-          <Link href="/flow-variants" passHref>
-            <StyledText sidebar focused={route.pathname === "/flow-variants"}>
-              How it works?
+
+        <Button focusable={false}>
+          <Link href="/tradeoffs" passHref>
+            <StyledText sidebar focused={route.pathname === "/tradeoffs"}>
+              Tradeoffs
             </StyledText>
           </Link>
-        </Button> */}
+        </Button>
       </View>
     </ScrollView>
   );
+
+  return resolveResponsiveValue({
+    base: show ? (
+      <View
+        sx={{
+          position: "absolute",
+          flex: 1,
+          backgroundColor: "$colors.blueGray900",
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0,
+          zIndex: 99,
+        }}
+      >
+        <Pressable
+          onPress={hide}
+          sx={{ right: 10, position: "absolute", zIndex: 999, bottom: 10 }}
+        >
+          <Image
+            src={closeSvg}
+            alt="close sidebar"
+            height={"56px"}
+            width={"56px"}
+          />
+        </Pressable>
+        {contentView}
+      </View>
+    ) : null,
+    md: (
+      <View
+        sx={{
+          flex: 1,
+          backgroundColor: "$colors.blueGray900",
+        }}
+      >
+        {contentView}
+      </View>
+    ),
+  }) as any;
 };
 
 const Button = createVariant(Pressable, {

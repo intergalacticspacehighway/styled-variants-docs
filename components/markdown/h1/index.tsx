@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledText } from "components/variants";
-import { Pressable, Text, View } from "react-native";
+import { Platform, Pressable, Text, View } from "react-native";
 import { createVariant } from "theme";
 
 export const H1 = (props: any) => (
@@ -61,7 +61,13 @@ export const Ul = (props: any) => (
 );
 
 export const Link = (props: any) => (
-  <Text sx={{ color: "$colors.primary" }} {...props} />
+  <Text
+    sx={{
+      color: "$colors.primary",
+      cursor: Platform.select({ web: "pointer" }),
+    }}
+    {...props}
+  />
 );
 
 const Button = createVariant(Pressable, {

@@ -1,0 +1,44 @@
+# Tradeoffs
+
+- As of now, Styled variants is a build time only library. It has very little runtime for theme context and responsive/interaction style utils. [createVariant](https://github.com/intergalacticspacehighway/react-native-styled-variants/blob/main/src/index.tsx#L259) is actually a noop function!
+
+<br />
+
+This adds some tradeoffs for runtime resolution.
+
+<br />
+e.g. Something like this cannot be done.
+
+```jsx
+const style = {
+  padding: "$space.10",
+};
+
+const App = () => {
+  return <View sx={style} />;
+};
+```
+
+- `sx` prop is resolved and converted to stylesheet or style object during build time. Thus the token values should be used inline.
+
+```jsx
+const App = () => {
+  return <View sx={{ padding: "$space.10" }} />;
+};
+```
+
+However, there is an escape hatch if you want to use theme tokens in a variable.
+
+### useTheme hook
+
+- [createTheme](/create-theme) returns with a hook named `useTheme`. This hook can be used to access the theme object.
+
+```jsx
+const App = () => {
+    const { theme } = useTheme();
+    const themeSpaceToken = theme.space.10;
+    return <View style={{ padding: themeSpaceToken }} />;
+};
+```
+
+**Try the [playground](/playground) to know all the tradeoffs**
