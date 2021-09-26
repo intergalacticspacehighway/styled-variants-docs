@@ -36,9 +36,8 @@ export default function Home() {
         <title>React Native Styled Variants</title>
         <meta
           name="description"
-          content="Compile time interactive, responsive and theming utilities for React Native."
+          content="Compile time interactive, responsive and theming style utilities for React Native."
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <View sx={{ flex: 1, marginTop: "$space.10" }}>

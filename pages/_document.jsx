@@ -26,7 +26,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en" style={{ height: "100%" }}>
-        <Head />
+        <Head>
+          <link rel="icon" type="image/png" href="/favicon.png" />
+        </Head>
         <body style={{ height: "100%", overflow: "hidden" }}>
           <Main />
           <NextScript />
