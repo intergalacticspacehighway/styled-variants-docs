@@ -1,22 +1,19 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { Pressable, Text, View } from "react-native";
 import { StyledText } from "components/variants";
-import { Code } from "components/Code";
 
 const links = [
   {
-    label: "Installation",
-    link: "/installation",
+    label: "Quick Start",
+    link: "/quick-start",
     description:
       "Steps to install styled variants in your react native project",
   },
   {
     label: "Variants",
-    link: "/variants",
-    description:
-      "Steps to install styled variants in your react native project",
+    link: "/create-variant",
+    description: "Steps to create styled variants in your react native project",
   },
   {
     label: "SX prop",
@@ -25,8 +22,9 @@ const links = [
   },
   {
     label: "How it works?",
-    link: "/how-it-works",
-    description: "Refer the transpilation flow of variants and sx prop",
+    link: "/playground",
+    description:
+      "Try the transpilation playground to know what's happening under the hood",
   },
 ];
 
