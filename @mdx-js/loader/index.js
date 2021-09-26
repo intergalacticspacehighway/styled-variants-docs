@@ -53,8 +53,6 @@ const loader = async function (content) {
   ${shouldRenderOnServer ? codeForServerSideOnlyPages : ""}
   `;
 
-  console.log("mdx to jsx code", code);
-
   return callback(null, code);
 };
 

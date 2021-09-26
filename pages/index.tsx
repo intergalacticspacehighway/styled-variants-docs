@@ -59,6 +59,7 @@ export default function Home() {
             return (
               <Pressable
                 key={link.link}
+                //@ts-ignore - web only
                 href={link.link}
                 sx={{
                   marginRight: "$space.4",
