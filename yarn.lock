@@ -535,10 +535,10 @@ axobject-query@^2.2.0:
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-2.2.0.tgz#943d47e10c0b704aa42275e20edf3722648989be"
   integrity sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA==
 
-babel-plugin-styled-variants@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/babel-plugin-styled-variants/-/babel-plugin-styled-variants-0.1.6.tgz#1ae3c38ba5b230de84ae5c9026bbbf964175806f"
-  integrity sha512-X/b2fFSaHynHMlvewuhV2SPjNwrrqVd4LSZGRejvKcCsWjNMY5/Bfx3ynLfnZMEmAAf21X616MmS3vC++b3shw==
+babel-plugin-styled-variants@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/babel-plugin-styled-variants/-/babel-plugin-styled-variants-0.1.7.tgz#cf56d3bac17b0b8e5a60e36f41e145afe5e6a7b2"
+  integrity sha512-iVj+St8w7tGaMR8bk5SnXH0ie013pX34YkJYFTtTT2xNBYuQ/NP65D6JjoVO7LPaHL4gPIsogWkJztyGD36JLA==
   dependencies:
     "@babel/helper-module-imports" "^7.15.4"
     "@babel/template" "^7.15.4"
@@ -2714,10 +2714,10 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-native-styled-variants@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/react-native-styled-variants/-/react-native-styled-variants-0.1.3.tgz#d62167b6578a46bce587998b2f9f502b5e6d68f2"
-  integrity sha512-R2dd4rPBZT6kdfu6CVcXH37E273voL0GM7x9tPpxzhjlWoRICAajjLt2/jE0u80g1LjykLmyOOFVe/MAqylypA==
+react-native-styled-variants@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/react-native-styled-variants/-/react-native-styled-variants-0.1.7.tgz#8c9a67ade349992d86233c5db5fd6941f7ae00a7"
+  integrity sha512-LXYQu8Dy/hPvRoau/lCl0wVDeOahlAs+SimnwDqs2kiN92KorZc+PdwdEhBll6BnV+iIhRajDQR17liF0n9E0w==
 
 react-native-web@^0.17.1:
   version "0.17.1"
