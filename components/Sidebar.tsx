@@ -31,14 +31,14 @@ export const Sidebar = () => {
         <Button focusable={false}>
           <Link href="/create-theme" passHref>
             <StyledText sidebar focused={route.pathname === "/create-theme"}>
-              Create Theme
+              createTheme
             </StyledText>
           </Link>
         </Button>
         <Button focusable={false}>
           <Link href="/create-variant" passHref>
             <StyledText sidebar focused={route.pathname === "/create-variant"}>
-              Create Variant
+              createVariant
             </StyledText>
           </Link>
         </Button>
