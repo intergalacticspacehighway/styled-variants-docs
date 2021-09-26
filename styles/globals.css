@@ -36,4 +36,5 @@ li {
 
 a {
   all: unset;
+  cursor: pointer;
 }

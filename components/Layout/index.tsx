@@ -3,10 +3,10 @@ import { Sidebar } from "../Sidebar";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useCurrentBreakpoint } from "react-native-styled-variants";
 import Image from "next/image";
 import menuSvg from "../../public/menu.svg";
 import { StyledText } from "components/variants";
+import { useCurrentBreakpoint } from "../../theme";
 
 export const Layout = ({ children }: any) => {
   const route = useRouter();

@@ -49,3 +49,31 @@ const Component = () => {
 <br />
 
 **Note:** Alongwith `sx`, `contentContainerSX` is supported that is equivalent of `contentContainerStyle`.
+
+<br />
+
+## Typescript support
+
+- Create a file named `extensions.d.ts` in your typescript project and copy paste the below content. `ITheme` and `IBreakpoints` are type of your theme and breakpoints passed in [createTheme](/create-theme).
+
+```jsx
+import "react-native";
+import { RNStyles } from "react-native-styled-variants";
+import type { ITheme, IBreakpoints } from "./theme";
+
+declare module "react-native" {
+  interface ViewProps {
+    sx?: RNStyles<ITheme, IBreakpoints>;
+  }
+  interface ScrollViewProps {
+    contentContainerSX?: RNStyles<ITheme, IBreakpoints>;
+  }
+  interface ImageProps {
+    sx?: RNStyles<ITheme, IBreakpoints>;
+  }
+  interface TextProps {
+    sx?: RNStyles<ITheme, IBreakpoints>;
+  }
+}
+
+```

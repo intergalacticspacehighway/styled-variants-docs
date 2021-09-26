@@ -35,9 +35,9 @@ However, there is an escape hatch if you want to use theme tokens in a variable.
 
 ```jsx
 const App = () => {
-    const { theme } = useTheme();
-    const themeSpaceToken = theme.space.10;
-    return <View style={{ padding: themeSpaceToken }} />;
+  const { theme } = useTheme();
+  const themeSpaceToken = theme.space["10"];
+  return <View style={{ padding: themeSpaceToken }} />;
 };
 ```
 

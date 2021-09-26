@@ -44,10 +44,11 @@ const breakpoints = {
   xl: 1280,
 };
 
-export const { createVariant, ThemeProvider, useTheme } = createTheme({
-  theme,
-  breakpoints,
-});
+export const { createVariant, ThemeProvider, useTheme, useCurrentBreakpoint } =
+  createTheme({
+    theme,
+    breakpoints,
+  });
 ```
 
 <br />
