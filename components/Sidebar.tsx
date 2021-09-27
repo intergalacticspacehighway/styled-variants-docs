@@ -164,7 +164,7 @@ export const Sidebar = ({
 };
 
 const Button = createVariant(Pressable, {
-  _hover: {
+  _hovered: {
     backgroundColor: "$colors.blueGray800",
   },
 });
